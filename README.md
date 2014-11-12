@@ -1,6 +1,3 @@
-rhq_nodb
-========
-
 RHQ (without DB) contianer repository
 
 To build and run rhq docker container:
