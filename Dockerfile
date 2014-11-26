@@ -2,16 +2,13 @@ FROM jboss/base-jdk:7
 
 MAINTAINER  Armine Hovsepyan ahovsepy@redhat.com, Viet Nguyen vnguyen@redhat.com
 
-USER root
+ADD rhq-nodb-deploy.sh /opt/jboss/rhq-nodb-deploy.sh
 
-RUN yum install -y unzip wget
-
-RUN wget http://sourceforge.net/projects/rhq/files/rhq/rhq-4.10/rhq-server-4.10.0.zip/download -O /opt/rhq-server-4.10.0.zip
-
-ADD rhq-nodb-deploy.sh /usr/local/bin/rhq-nodb-deploy.sh
-
-RUN chmod 777 /usr/local/bin/rhq-nodb-deploy.sh
+RUN curl -s -o /opt/jboss/rhq-server-4.10.0.zip  http://cznic.dl.sourceforge.net/project/rhq/rhq/rhq-4.10/rhq-server-4.10.0.zip ;\
+    unzip -q -d /opt/jboss/ /opt/jboss/rhq-server-4.10.0.zip 
 
 EXPOSE 7080
 
-CMD ["/usr/local/bin/rhq-nodb-deploy.sh"]
+ENV rhq_version 4.10.0
+
+CMD ["/bin/bash", "/opt/jboss/rhq-nodb-deploy.sh"]
