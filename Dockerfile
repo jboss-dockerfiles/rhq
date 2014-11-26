@@ -22,4 +22,4 @@ ENV RHQ_HOME /opt/jboss/rhq-server/rhq-server-$RHQ_VERSION.0
 EXPOSE 7080
 
 # Install and start rhq server (with storage and agent) connected to "linked" rhq-psql (see vnguyen/rhq-psql image)
-CMD ["/bin/bash", "/opt/jboss/rhq-nodb-deploy.sh","RHQ_VERSION=$RHQ_VERSION", "RHQ_HOME=$RHQ_HOME"]
+CMD ["/bin/bash", "/opt/jboss/rhq-nodb-deploy.sh", "RHQ_HOME=$RHQ_HOME"]
