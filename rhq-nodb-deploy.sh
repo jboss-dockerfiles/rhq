@@ -3,7 +3,6 @@
 # See also: https://github.com/vnugent/rhq-psql-docker
 echo "Setup starting ..."
 DB_SERVER=${DB_PORT_5432_TCP_ADDR}
-RHQ_HOME=/opt/jboss/rhq-server-4.10.0
 
 if [ ! -z $DB_SERVER ];
 then
